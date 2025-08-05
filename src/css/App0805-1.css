@@ -1,0 +1,7 @@
+.myClass{
+    width: 200px;
+    text-align: center;
+    color: rgb(109, 213, 179);
+    background-color: rgb(59, 61, 60);
+    border: 3px grey dashed;
+}
