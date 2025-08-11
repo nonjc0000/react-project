@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cards{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.card{
+    display: block;
+    width: 550px;
+    border: 1px solid darkgray;
+    border-radius: 10px;
+    font-family: 'PingFang TC';
+}
+
+.cityName{
+    border-bottom: 1px solid darkgray;
+    background-color: lightgray;
+    border-radius:  10px 10px 0 0;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.weatherInfo{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px 0;
+}
+
+.day{
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+}
