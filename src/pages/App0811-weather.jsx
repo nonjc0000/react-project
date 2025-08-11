@@ -1,5 +1,5 @@
 import axios from 'axios';
-import '../css/App0811-weather.css'
+import '../css/App0811-weather.css';
 import { IoIosUmbrella } from "react-icons/io";
 import { useEffect } from 'react';
 
