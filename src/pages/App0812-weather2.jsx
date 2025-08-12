@@ -14,7 +14,6 @@ const App = () => {
     // useEffect() Hook => 渲染後，只呼叫一次json
     useEffect(() => {
         // 如果要取得渲染後的DOM元素（return內的內容），要寫在useEffect()裡
-
         // 非同步取資料，async要搭配await
         (async () => {
             // 取得public中的json資料
