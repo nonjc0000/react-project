@@ -25,7 +25,7 @@ const App = () => {
             // 檢查是否連上json
             console.log(jsonData.data.cwaopendata.dataset);
 
-            // 取得各縣市的氣象資訊
+            // 取得各縣市的氣象資訊（從json中解構出來）
             const { location } = jsonData.data.cwaopendata.dataset
             console.log(location);
 
