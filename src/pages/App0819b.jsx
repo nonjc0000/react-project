@@ -39,11 +39,13 @@ const App0819b = () => {
   return (
     <div>
       <h1>元件之間，傳遞元件</h1><hr />
+      {/* 進階做法 */}
       <MyComponent a='屬性a'>
         <SecondComponent c='屬性a' />
       </MyComponent>
 
       <hr />
+      {/* 普通做法（逐層各自呼叫） */}
       <MyComponent2 b='屬性b' />
     </div>
 
