@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 // import './index.css'
 // import App from './App.jsx'
 // import './sass/all.scss'
-import App from './pages/App0818d'
+import App from './pages/App0819b'
 import { HashRouter } from 'react-router-dom'
 
 createRoot(document.getElementById('root')).render(
