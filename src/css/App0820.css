@@ -73,3 +73,10 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+
+.completed{
+    /* 刪除線 */
+    text-decoration: line-through;
+    /* 透明度 */
+    opacity: .4;
+}

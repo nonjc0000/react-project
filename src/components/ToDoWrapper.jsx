@@ -15,11 +15,37 @@ const ToDoWrapper = () => {
 
     const [todos, setTodos] = useState(
         [
-            { content: 'parkng fee 0820', id: Math.random() },
-            { content: 'playing guitar', id: Math.random() },
-            { content: 'cooking', id: Math.random() },
+            { content: 'parkng fee 0820', id: Math.random(), isCompleted: false },
+            { content: 'playing guitar', id: Math.random(), isCompleted: false },
+            { content: 'cooking', id: Math.random(), isCompleted: false },
         ]
     );
+
+    // 建立刪除todo
+    //傳入被刪除的todo.id
+
+    const delTodo = (id) => {
+        setTodos(todos.filter(todo => {
+            // 使用filter方法，保留不是被刪除的id
+            return todo.id !== id
+        }))
+    }
+
+    // 建立切換isCompleted屬性函式
+
+    const toggleCompleted = (id) => {
+        // isCompleted => false
+        // isCompleted => true
+        // 檢查被點擊的項目id是否跟陣列中的id一樣
+        // yes => 1. 取出todo 2. 將isCompleted屬性值反向(not)
+        // no => todo 不變
+
+        setTodos(todos.map((todo) => {
+            return todo.id === id
+                ? {...todo, isCompleted :!todo.isCompleted }
+                : todo
+        }))
+    }
 
     return (
         <div className="wrapper">
@@ -31,11 +57,13 @@ const ToDoWrapper = () => {
                 setTodos([...todos, {
                     content: newContent, // 預設一個空白內容
                     id: Math.random(),
+                    isCompleted: false,
                 }])
             }} />
+
             {
                 todos.map((todo) => {
-                    return <ToDo todo={todo.content} key={todo.id} />
+                    return <ToDo todo={todo} key={todo.id} delTodo={delTodo} toggleCompleted={toggleCompleted}/>
                 })
             }
         </div>
