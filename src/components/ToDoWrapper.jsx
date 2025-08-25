@@ -13,11 +13,14 @@ const ToDoWrapper = () => {
     // 為了避免索引值錯亂，將陣列改成陣列物件
     // 而key值用亂數產生
 
+    // 因為要判定todo內容是否被點擊，所以增加一個isCompleted屬性
+    // 因為要判定todo內容是否修改，所以增加一個isEdit屬性
+
     const [todos, setTodos] = useState(
         [
-            { content: 'parkng fee 0820', id: Math.random(), isCompleted: false },
-            { content: 'playing guitar', id: Math.random(), isCompleted: false },
-            { content: 'cooking', id: Math.random(), isCompleted: false },
+            { content: 'parkng fee 0820', id: Math.random(), isCompleted: false, isEdit: false },
+            { content: 'playing guitar', id: Math.random(), isCompleted: false, isEdit: false },
+            { content: 'cooking', id: Math.random(), isCompleted: false, isEdit: false },
         ]
     );
 
@@ -47,6 +50,25 @@ const ToDoWrapper = () => {
         }))
     }
 
+    // 建立切換isEdit數性
+     const toggleIsEdit = (id) => {
+
+        setTodos(todos.map((todo) => {
+            return todo.id === id
+                ? {...todo, isEdit :!todo.isEdit }
+                : todo
+        }))
+    }
+
+    // 建立修改todo函式
+    const editTodo = (id, editContent) =>{
+        setTodos(todos.map(todo=>{
+            return todo.id === id
+            ? {...todo, content: editContent, isEdit: false}
+            : todo
+        }))
+    }
+
     return (
         <div className="wrapper">
             <h1>To Do List</h1>
@@ -58,12 +80,19 @@ const ToDoWrapper = () => {
                     content: newContent, // 預設一個空白內容
                     id: Math.random(),
                     isCompleted: false,
+                    isEdit: false,
                 }])
             }} />
 
             {
                 todos.map((todo) => {
-                    return <ToDo todo={todo} key={todo.id} delTodo={delTodo} toggleCompleted={toggleCompleted}/>
+                    return <ToDo 
+                    todo={todo} 
+                    key={todo.id} 
+                    delTodo={delTodo} 
+                    toggleCompleted={toggleCompleted} 
+                    toggleIsEdit={toggleIsEdit}
+                    editTodo={editTodo}/>
                 })
             }
         </div>
