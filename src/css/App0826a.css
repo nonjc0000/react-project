@@ -1,0 +1,21 @@
+body{
+    background-color: whitesmoke;
+}
+
+.zoom {
+    border: 2px solid red;
+    display: inline-block;
+    width: 300px;
+    margin: 100px;
+    overflow: hidden;
+}
+
+.imgScale img{
+    transform: scale(1.2);
+}
+
+img {
+    width: 100%;
+    vertical-align: top;
+    transition: all .3s ease;
+}

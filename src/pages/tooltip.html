@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a {
+            text-decoration: none;
+            color: red;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .ttpshow {
+            display: none;
+        }
+
+        #ttpPanel {
+            display: none;
+            background-color: whitesmoke;
+            width: 200px;
+            text-align: left;
+            border: 3px solid red;
+            position: absolute;
+            z-index: 99;
+            padding: 15px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrap">
+        <h1>Tooltip</h1>
+        <p>Lorem ipsum dolor sit amet
+            <a href="">
+                consectetur
+                <span class="ttpshow">consectetur內容說明⋯⋯</span>
+            </a>
+            adipisicing elit. Debitis numquam at fugiat id voluptates illo alias aliquid, ex veritatis accusamus
+            reiciendis 
+            <a href="">
+            perferendis
+            <span class="ttpshow">perferendis內容說明⋯⋯</span>
+            </a> cumque tempora modi enim reprehenderit rem! Obcaecati accusamus sunt quis praesentium
+            quod nam reiciendis, eligendi iure architecto porro id, sit vel fuga magnam quasi, delectus soluta
+            <a href="">
+            <img src="../images/react.svg" alt="">
+            <span class="ttpshow">圖片說明⋯⋯</span>
+            </a>
+            asperiores dicta veritatis at ipsum sequi eius temporibus illo! Similique aspernatur accusantium quam natus
+            obcaecati harum nesciunt placeat, maxime at reiciendis fugit fugiat doloribus, incidunt pariatur nostrum,
+            explicabo modi autem dolorem magni esse odio labore veniam officia. Nobis quis adipisci atque omnis illo
+            voluptatum, ea deserunt exercitationem, consequuntur minus in vel obcaecati?
+        </p>
+
+    </div>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- 自己寫的 -->
+    <script>
+        $(function () {
+            // has => 檢查是否有指定的名稱
+            $('a:has(.ttpshow)').mouseover(function (e) {
+                $('body').append('<div id="ttpPanel">' + $(this).children('.ttpshow').html() + '</div>')
+                $('#ttpPanel').css({
+                    top: (e.pageY + 10) + 'px',
+                    left: (e.pageX + 10) + 'px',
+                }).fadeIn(200);
+            }).mouseout(function () {
+                $('#ttpPanel').remove();
+            }).mousemove(function (e) {
+                $('#ttpPanel').css({
+                    top: (e.pageY + 10) + 'px',
+                    left: (e.pageX + 10) + 'px',
+                });
+            })
+        })
+    </script>
+</body>
+
+</html>
